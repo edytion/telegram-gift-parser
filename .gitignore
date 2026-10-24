@@ -1,0 +1,22 @@
+# Credentials, Telegram authorization and local output
+sessions/
+asessions.json
+*.session*
+.env
+.env.*
+!.env.example
+logs/
+gifts_database/
+gifts.jsonl
+config.json
+# Python / editors
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.zip
