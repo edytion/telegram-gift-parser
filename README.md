@@ -1,60 +1,60 @@
 # Telegram Gift Parser
 
-Версия **v0.1.0** · [История изменений](CHANGELOG.md)
+Version **v0.1.0** · [Changelog](CHANGELOG.md)
 
-**Русский** · [English](README.en.md)
+**English** · [Русский](README.ru.md)
 
-Если вам нужны данные о коллекционных подарках Telegram в обычных файлах, этот парсер поможет их собрать. Он получает сведения через Telegram API и записывает их в JSONL: отдельно для каждой коллекции и в один общий файл.
+If you need Telegram collectible gift data in plain files, this parser helps you collect it. It reads information through the Telegram API and writes JSONL files: one per collection and one combined file.
 
-Для работы понадобятся Python и ваш аккаунт Telegram. Платный сторонний API не нужен.
+You will need Python and your own Telegram account. There is no paid third-party API to subscribe to.
 
-## Что можно собрать
+## What you can collect
 
-Парсер сохраняет владельца, модель, фон, символ, тираж и время проверки подарка. Если Telegram не раскрывает имя владельца, в записи остаются доступные сведения — например, его ID.
+The parser saves the owner, model, backdrop, symbol, edition counts and the time each gift was checked. When Telegram does not disclose an owner's name, the record keeps whatever information is available, such as their ID.
 
-Вы можете проверить один подарок, запустить сбор по найденным коллекциям или продолжить прерванную загрузку. Уже сохранённые номера при обычном запуске пропускаются. Для повторной проверки есть `--refresh`.
+You can check a single gift, collect gifts from discovered collections or resume an interrupted run. A normal run skips numbers already saved. Use `--refresh` when you want to check them again.
 
-Сразу о пределах: парсер не обещает найти каждый существующий подарок. Некоторые коллекции не удаётся определить автоматически, а отдельные номера могут быть недоступны через API. Полученная база отражает состояние подарков на момент проверки; изменения владельцев сами по себе в неё не поступают.
+A note on coverage: this tool cannot promise to find every gift. Some collections cannot be resolved automatically, and individual numbers may be unavailable through the API. Your files reflect the time of each check; owner changes do not arrive automatically.
 
-## Как это выглядит
+## Screenshots
 
-Добавление аккаунта и сбор подарков в консоли. Введённые данные на скриншоте скрыты.
+Account setup and gift collection in the console. Entered credentials have been hidden in the screenshot.
 
-![Запуск парсера и прогресс сбора](docs/images/parser-running.png)
+![Parser startup and collection progress](docs/images/parser-running.png)
 
-Результат сохраняется в JSONL: у каждой коллекции свой файл, а общая база находится в папке `unified`.
+Results are saved as JSONL, with a separate file for each collection and a combined database in the `unified` folder.
 
-![Файлы коллекций и пример JSONL в VS Code](docs/images/output-example.png)
+![Collection files and JSONL output in VS Code](docs/images/output-example.png)
 
-## Рекомендация автора
+## A recommendation from the author
 
-Для больших объёмов я рекомендую использовать от **8 аккаунтов**: сбор распределяется между ними, и работа обычно идёт быстрее, чем с одним. Это рекомендация по организации сбора, а не гарантия скорости — результат зависит от доступности данных и ограничений Telegram.
+For larger collections, I recommend using **8 or more accounts**. The parser shares the work between them, which will usually make collection faster than using one account. This is a practical recommendation, not a speed guarantee: results still depend on data availability and Telegram's limits.
 
-Если парсер обнаружит критическую ошибку, потерю соединения или проблему с авторизацией, он остановит весь сбор. Для `FLOOD_WAIT` предусмотрен другой порядок: программа выдержит указанную Telegram паузу, после чего продолжит работу. Такая обработка помогает контролировать сбор, но не защищает аккаунты от ограничений или блокировки.
+If the parser detects a critical error, a lost connection or an authorization problem, it stops collection across all accounts. `FLOOD_WAIT` is handled differently: the program waits for the period specified by Telegram, then continues. These checks help manage collection, but they do not protect accounts from restrictions or bans.
 
-## Перед запуском — пожалуйста, прочитайте
+## Before you start, please read this
 
-В парсере предусмотрены паузы и остановка при обнаружении критических ошибок. Однако решения об ограничениях и блокировке аккаунтов принимает Telegram, и гарантировать, что ваш аккаунт не столкнётся с ними, я не могу. Поэтому перед запуском прошу учесть простое правило: **не используйте основные аккаунты**.
+The parser includes request pauses and stops when it detects critical errors. However, Telegram decides when to restrict or ban an account, and I cannot guarantee that your accounts will be unaffected. Before you start, please follow one simple rule: **do not use your main accounts**.
 
-Для работы выбирайте отдельные дополнительные аккаунты, возможная потеря которых не затронет вашу переписку, контакты, подарки и другие важные данные. `FLOOD_WAIT` означает временное ограничение запросов; ожидание его окончания не гарантирует защиту от последующих ограничений. Используя парсер, вы принимаете эти риски и ответственность за свои аккаунты на себя. Как автор, я не могу гарантировать их сохранность.
+Use separate secondary accounts whose possible loss would not put your conversations, contacts, gifts or other important data at risk. `FLOOD_WAIT` is a temporary request limit; waiting for it to expire does not guarantee protection from further restrictions. By using the parser, you accept these risks and take responsibility for your accounts. As the author, I cannot guarantee that they will remain accessible or unrestricted.
 
-## С чего начать
+## Getting started
 
 ### Windows
 
-Установите **Python 3.10 или новее** с [python.org](https://www.python.org/downloads/). При установке отметьте пункт **Add Python to PATH**.
+Install **Python 3.10 or newer** from [python.org](https://www.python.org/downloads/). Select **Add Python to PATH** during installation.
 
-Скачайте проект, распакуйте архив и откройте `START.bat` двойным нажатием. При первом запуске он подготовит окружение и установит зависимости. Затем программа предложит выбрать язык и добавить аккаунт.
+Download and extract the project, then double-click `START.bat`. On its first run, it creates a virtual environment and installs the dependencies. The program will then ask you to choose a language and add an account.
 
-Если запускаете из PowerShell, сначала перейдите в папку проекта и выполните:
+If you prefer PowerShell, open it in the project folder and run:
 
 ```powershell
 .\START.bat
 ```
 
-Именно с `.\` в начале: так PowerShell запускает файл из текущей папки.
+Keep the `.\` at the beginning: PowerShell needs it to run a file from the current folder.
 
-Если хотите установить всё вручную:
+For a manual installation:
 
 ```powershell
 py -3 -m venv .venv
@@ -62,11 +62,11 @@ py -3 -m venv .venv
 .\.venv\Scripts\python.exe .\gift-parser.py
 ```
 
-Активировать окружение или менять ExecutionPolicy для этих команд не требуется.
+These commands do not require activating the environment or changing ExecutionPolicy.
 
-### Linux и macOS
+### Linux and macOS
 
-Откройте терминал в папке проекта:
+Open a terminal in the project folder:
 
 ```bash
 python3 -m venv .venv
@@ -74,171 +74,171 @@ python3 -m venv .venv
 .venv/bin/python gift-parser.py
 ```
 
-В примерах ниже приведены команды для Windows. На Linux и macOS используйте `.venv/bin/python gift-parser.py` с теми же аргументами.
+The examples below use Windows commands. On Linux and macOS, use `.venv/bin/python gift-parser.py` with the same arguments.
 
-## Как добавить аккаунт
+## Adding your account
 
-При первом запуске программа сама запросит нужные данные.
+The program walks you through setup on the first launch.
 
-1. Откройте [my.telegram.org/apps](https://my.telegram.org/apps), войдите в свой аккаунт и создайте приложение. На этой странице вы получите **API ID** и **API hash**.
-2. Придумайте имя аккаунта для парсера, например `main`. Подойдут латинские буквы, цифры, `_` и `-`, всего до 64 символов.
-3. Введите API ID и API hash в консоли. При вводе hash символы не отображаются — это нормально.
-4. При подключении укажите номер телефона с кодом страны, код входа и пароль двухэтапной защиты, если он установлен. Код может прийти в Telegram, а не по SMS.
+1. Open [my.telegram.org/apps](https://my.telegram.org/apps), sign in and create an application. You will find your **API ID** and **API hash** there.
+2. Choose a local name for the account, such as `main`. Names accept up to 64 ASCII letters, digits, `_` and `-`.
+3. Enter the API ID and API hash in the console. Nothing appears while you type the hash; this is expected.
+4. When connecting, enter your phone number with the country code, your login code and your two-step verification password if you have one. The code may arrive in Telegram rather than by SMS.
 
-Настройки сохраняются в `sessions/asessions.json`, авторизация — в отдельном файле в папке `sessions`. При следующем запуске входить заново обычно не придётся. Если вы прервали авторизацию, программа повторит её при следующем запуске сбора.
+Account settings go in `sessions/asessions.json`. Authorization is stored in a separate file under `sessions`, so you normally will not need to sign in again. If you interrupt sign-in, the next collection run will try again.
 
-Чтобы пока только добавить настройки аккаунта и не начинать сбор:
+To save account settings without connecting or starting collection:
 
 ```powershell
 .\START.bat --setup
 ```
 
-Ещё один аккаунт можно добавить позже:
+You can add another account later:
 
 ```powershell
 .\START.bat --add-account
 ```
 
-Посмотреть сохранённые имена или запустить сбор с конкретного аккаунта:
+To list saved names or collect with a particular account:
 
 ```powershell
 .\START.bat --list-accounts
 .\START.bat --account main
 ```
 
-Список не показывает API-ключи. Если вы подключите один и тот же Telegram-аккаунт через разные сессии в общем запуске, программа остановится и сообщит об этом.
+The list does not show API credentials. If you connect the same Telegram account through different sessions in a shared run, the program stops and explains the problem.
 
-## Как выбрать язык
+## Choosing a language
 
-При первом запуске доступны русский и английский. Выбор сохраняется в `config.json`.
+English and Russian are available on the first launch. Your choice is saved in `config.json`.
 
-Чтобы изменить язык, остановите парсер и выполните в PowerShell:
-
-```powershell
-.\START.bat --lang ru
-```
-
-Для английского:
+To change it, stop the parser and run this in PowerShell:
 
 ```powershell
 .\START.bat --lang en
 ```
 
-Это команды запуска, их не нужно вводить в работающий парсер. После смены языка программа продолжит обычный запуск. Если хотите только сохранить язык и выйти, добавьте `--list-accounts`:
+For Russian:
+
+```powershell
+.\START.bat --lang ru
+```
+
+These are launch commands, not input for a running parser. The program continues with a normal run after changing the language. To save your choice and exit without collecting, add `--list-accounts`:
 
 ```powershell
 .\START.bat --lang en --list-accounts
 ```
 
-Сообщения самой программы переведены. Ошибки, которые приходят от Telegram или Telethon, могут оставаться на английском. Названия полей в базе одинаковы для обоих языков.
+The program's own messages are translated. Errors returned by Telegram or Telethon may remain in English. Database field names stay the same in both languages.
 
-## Первый сбор
+## Your first collection run
 
-Советую начать с одного подарка: так вы убедитесь, что аккаунт подключён и данные записываются.
+I suggest starting with one gift to check that sign-in works and records are being saved:
 
 ```powershell
 .\START.bat https://t.me/nft/PlushPepe-1 --single
 ```
 
-Для обычного сбора по всем найденным коллекциям:
+For a normal run across all discovered collections:
 
 ```powershell
 .\START.bat
 ```
 
-Если передать ссылку без `--single`, она задаст стартовую коллекцию, но не ограничит сбор одним подарком.
+Passing a link without `--single` sets the starting collection; it does not limit the run to one gift.
 
-Для короткой проверки первых десяти номеров каждой найденной коллекции:
+For a short check of the first ten numbers in each discovered collection:
 
 ```powershell
 .\START.bat --first 1 --last 10
 ```
 
-Остановить сбор можно сочетанием **Ctrl+C**. Уже записанные данные останутся на диске. Чтобы продолжить, запустите ту же команду без `--refresh`.
+Press **Ctrl+C** to stop. Records already written stay on disk. To resume, run the same command without `--refresh`.
 
-## Где искать результат
+## Where your data goes
 
-| Путь | Что находится внутри |
+| Path | Contents |
 |---|---|
-| `gifts_database/<Collection>.jsonl` | Данные одной коллекции |
-| `gifts_database/unified/unified.jsonl` | Общая база |
-| `sessions/asessions.json` | API-настройки ваших аккаунтов |
-| `sessions/*.session` | Сохранённая авторизация Telegram |
-| `config.json` | Настройки запуска и язык |
-| `logs/` | Журналы, каталог и состояние последнего запуска |
+| `gifts_database/<Collection>.jsonl` | Records for one collection |
+| `gifts_database/unified/unified.jsonl` | Combined database |
+| `sessions/asessions.json` | Your accounts' API settings |
+| `sessions/*.session` | Saved Telegram authorization |
+| `config.json` | Run settings and language |
+| `logs/` | Logs, catalog and latest run state |
 
-В JSONL каждая строка — отдельная JSON-запись. Файлы можно обрабатывать своими скриптами или импортировать в базу данных.
+Each JSONL line is a separate JSON record. You can process the files with your own scripts or import them into a database.
 
-## Настройки
+## Settings
 
-`config.json` появляется автоматически. В репозитории есть `config.example.json`, если хотите заранее посмотреть его структуру.
+The program creates `config.json` automatically. You can look at `config.example.json` in the repository to see its structure beforehand.
 
-| Поле | По умолчанию | Для чего нужно |
+| Field | Default | Purpose |
 |---|---|---|
-| `language` | Выбирается при первом запуске | `ru` или `en`; Enter при выборе включает английский |
-| `url` | `https://t.me/nft/PlushPepe-1` | Стартовый подарок и приоритетная коллекция |
-| `scan` | `true` | Поиск коллекций; при `false` проверяется один подарок |
-| `first` | `1` | Номер, с которого начинается сбор |
-| `interval` | `0.3` | Минимальная пауза между запросами одного аккаунта в секундах |
+| `language` | Chosen on first launch | `en` or `ru`; pressing Enter at the language prompt selects English |
+| `url` | `https://t.me/nft/PlushPepe-1` | Starting gift and priority collection |
+| `scan` | `true` | Discover collections; `false` checks a single gift |
+| `first` | `1` | Number to start collecting from |
+| `interval` | `0.3` | Minimum seconds between requests from one account |
 
-Интервал можно задать на один запуск:
+To set the interval for one run:
 
 ```powershell
 .\START.bat --interval 1
 ```
 
-Чтобы заново проверить сохранённые подарки:
+To check saved gifts again:
 
 ```powershell
 .\START.bat --refresh
 ```
 
-При обновлении старые строки не удаляются: в файлы добавляются новые снимки. Если вам нужна последняя версия данных, выбирайте для каждого `slug` запись с наиболее поздним `checked_at`.
+Refreshing appends new snapshots rather than deleting old lines. If you need the latest data, select the record with the most recent `checked_at` for each `slug`.
 
-Аргумент `--scan` оставлен для совместимости. Он не переопределяет `scan: false` в настройках.
+The `--scan` argument is kept for compatibility. It does not override `scan: false` in your settings.
 
-Все доступные аргументы:
+To see all available arguments:
 
 ```powershell
-.\START.bat --lang ru --help
+.\START.bat --lang en --help
 ```
 
-## Если что-то не работает
+## If something goes wrong
 
-**Программа не понимает `--lang`.** Скорее всего, запускается старая версия. Обновите исходники, включая папку `collector`. Свою папку `sessions`, базу и `config.json` удалять не нужно.
+**The program does not recognize `--lang`.** You are probably running an older version. Update the source files, including the `collector` folder. Keep your existing `sessions` folder, database and `config.json`.
 
-**PowerShell не находит START.bat.** Проверьте, что открыли папку проекта, и используйте `.\START.bat`, а не просто `START.bat`.
+**PowerShell cannot find START.bat.** Check that you are in the project folder and use `.\START.bat` rather than just `START.bat`.
 
-**Ошибка API ID или API hash.** Сверьте данные с my.telegram.org. Остановите парсер и исправьте нужную запись в `sessions/asessions.json`.
+**API ID or API hash error.** Check your credentials at my.telegram.org. Stop the parser and correct the account entry in `sessions/asessions.json`.
 
-**FloodWait.** Telegram попросил сделать паузу. Парсер дождётся указанного времени. Уменьшение интервала не гарантирует более быстрый сбор: ограничения зависят от Telegram.
+**FloodWait.** Telegram has requested a pause. The parser waits for the specified duration. A shorter request interval does not guarantee a faster run: Telegram controls the limits.
 
-**Пропало соединение или не удалось войти.** Сбор останавливается. Посмотрите `logs/errors.log`, устраните причину и повторите запуск.
+**Connection or sign-in failure.** Collection stops. Check `logs/errors.log`, resolve the issue and run the program again.
 
-**Повреждён файл аккаунтов.** Парсер не перезаписывает его. Исправьте JSON или сначала сохраните копию файла, а затем настройте аккаунты заново.
+**Corrupt account file.** The parser will not overwrite it. Repair the JSON, or back up the file before setting up your accounts again.
 
-**Собрана не вся коллекция.** Посмотрите журналы: часть номеров может быть недоступна, а часть коллекций — не определена. Само по себе это не доказывает, что подарка нет.
+**A collection is incomplete.** Check the logs. Some numbers may be unavailable, or a collection may not have been resolved. This alone does not prove that a gift does not exist.
 
-Коды завершения: `0` — работа завершена, `2` — остались неполные коллекции, `1` — ошибка, `130` — остановка пользователем. Ошибка аргументов командной строки тоже может возвращать `2`; в таком случае ориентируйтесь на сообщение в консоли.
+Exit codes: `0` means the run finished, `2` means some collections are incomplete, `1` means an error and `130` means the user interrupted the run. Command-line argument errors may also return `2`; in that case, follow the message printed in the console.
 
-## Перед публикацией своих изменений
+## Before publishing your changes
 
-Не загружайте папку `sessions`: файлы сессий дают доступ к аккаунту, а API hash хранится в JSON открытым текстом. Журналы и личные выгрузки тоже лучше оставить у себя. Они уже исключены через `.gitignore`, но это не удаляет файлы, которые ранее попали в историю Git.
+Do not upload `sessions`: session files grant account access, and API hashes are stored in plaintext JSON. Keep logs and personal exports to yourself as well. These paths are already in `.gitignore`, but that does not remove files previously committed to Git history.
 
-Если хотите удалить аккаунт из парсера, остановите программу, уберите его запись из `sessions/asessions.json` и соответствующий файл сессии. Отозвать саму авторизацию можно в Telegram: **Настройки → Устройства**.
+To remove an account from the parser, stop the program, delete its entry from `sessions/asessions.json` and remove the corresponding session file. To revoke the authorization itself, open Telegram → **Settings → Devices**.
 
-Для проверки изменений:
+To check your changes:
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-Тесты работают во временных папках и не подключаются к Telegram. Проверки GitHub Actions настроены для Windows и Linux.
+Tests use temporary folders and do not connect to Telegram. GitHub Actions checks are configured for Windows and Linux.
 
-Проект не связан с командой Telegram. Готовая база подарков и размещённый API в него не входят. Используя парсер, соблюдайте правила Telegram и требования к работе с данными.
+This project is not affiliated with Telegram. It does not include a prebuilt gift database or a hosted API. Please follow Telegram's rules and applicable data requirements when using it.
 
-Код доступен под лицензией [MIT](LICENSE). Вы можете использовать его в своих проектах и дорабатывать под свои задачи.
+The code is available under the [MIT license](LICENSE). You are welcome to use it in your projects and adapt it to your needs.
 
 ---
 
-Автор: **thugger / edytion** · [github.com/edytion](https://github.com/edytion)
+Author: **thugger / edytion** · [github.com/edytion](https://github.com/edytion)
