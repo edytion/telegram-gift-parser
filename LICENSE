@@ -1,21 +1,62 @@
-MIT License
+Telegram Gift Parser — Personal Noncommercial Use License 1.0
+Effective date: 2026-10-24
 
-Copyright (c) 2026 Telegram Gift Parser contributors
+Copyright (c) 2026 thugger / edytion.
+All rights reserved except as expressly granted below.
+Author/contact: https://github.com/edytion
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+1. Scope
+"Software" means the original project code and accompanying documentation
+distributed with this license, to the extent the licensor holds the relevant
+rights. Third-party dependencies and material remain under their own licenses.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+2. Permission
+You may view the source code, download and make unchanged copies, install
+dependencies, enter your own configuration and credentials, and run the
+unchanged Software solely for your own personal, noncommercial purposes.
+You may keep private backup copies. Keep copyright and license notices intact.
+Entering settings through the provided interface or editing local account and
+configuration files is permitted and is not a prohibited code modification.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+3. Restrictions
+Without prior written permission from the author, you may not:
+(a) modify, adapt, translate the code or create derivative versions;
+(b) incorporate or reuse the code in another project, product or service;
+(c) use the Software for commercial purposes, including business operations,
+paid collection work, paid access, hosted services, resale, or collecting data
+for sale or use in a commercial product;
+(d) sell, sublicense or redistribute the Software or modified versions.
+
+4. GitHub and mandatory rights
+This license does not restrict viewing or repository forks expressly permitted
+by GitHub's applicable terms. Such a fork does not, by itself, grant permission
+to modify, commercially use or redistribute the Software outside those terms.
+Nothing here overrides non-waivable rights or applicable statutory exceptions.
+
+5. Earlier MIT distribution
+Earlier revisions of this project were distributed under the MIT License.
+This license does not revoke or narrow permissions already granted for those
+revisions, including lawful use, modification and redistribution under MIT.
+A copy of the earlier notice is retained in LICENSE-MIT-LEGACY.txt.
+The new terms do not make previously MIT-licensed code exclusively restricted.
+Only material for which no prior license provides the relevant permission can
+be subject exclusively to these new restrictions.
+
+6. Data and third parties
+This license grants no rights to Telegram accounts, gifts, personal data,
+Telegram services or third-party material. It makes no claim of ownership over
+raw facts collected by the Software. The restriction on commercial operation
+in section 3 applies to use under this license, not independently held rights.
+
+7. No warranty
+The Software is provided "AS IS", without warranties of merchantability,
+fitness for a particular purpose or noninfringement, to the extent permitted
+by applicable law. The author does not guarantee data accuracy, availability,
+account safety or protection from Telegram restrictions or bans.
+To the extent permitted by applicable law, the author is not liable for losses
+arising from use of the Software.
+
+8. Other permissions
+For modification, integration, redistribution or commercial use beyond any
+rights you already hold, obtain a separate written permission from the author.
+This is a source-available license, not an open-source license.

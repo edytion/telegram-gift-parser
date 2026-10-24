@@ -1,5 +1,9 @@
 # Telegram Gift Parser v0.1.0
 
+> Licensing update (2026-10-24): current distribution uses the Personal Noncommercial Use License. Earlier MIT revisions retain their original permissions. See LICENSE.
+>
+> Изменение условий (24.10.2026): текущая публикация использует лицензию личного некоммерческого использования. Прежние MIT-версии сохраняют исходные разрешения. См. LICENSE.
+
 **Русский**
 
 Первый публичный релиз. Парсер собирает сведения о коллекционных подарках Telegram и сохраняет их в JSONL — отдельно по коллекциям и в общую базу.
