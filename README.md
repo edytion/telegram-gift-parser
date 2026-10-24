@@ -242,7 +242,7 @@ This project is not affiliated with Telegram. It does not include a prebuilt gif
 The current distribution uses the [Personal Noncommercial Use License](LICENSE).
 You may run the unchanged parser for your own personal, noncommercial tasks and configure your own accounts. Modifying the code, reusing it in other projects, redistributing it or operating it commercially requires the author's prior written permission, unless you already hold those rights under another applicable license.
 
-Earlier revisions were published under MIT. Those permissions remain in place: this change cannot prevent use, modification or commercial reuse of that earlier code under MIT. The original notice is preserved in [LICENSE-MIT-LEGACY.txt](LICENSE-MIT-LEGACY.txt).
+Earlier revisions were published under MIT. Those permissions remain in place: this change cannot prevent use, modification or commercial reuse of that earlier code under MIT. The original MIT notice remains available in the repository's Git history.
 
 This project is now distributed as source-available, rather than under an open-source license. Dependencies retain their own licenses. For the complete terms, see LICENSE; this paragraph is a summary.
 

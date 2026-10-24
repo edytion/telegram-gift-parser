@@ -2,9 +2,9 @@
 
 ## Licensing update — 2026-10-24
 
-**EN:** Current distribution terms changed to the custom Personal Noncommercial Use License. Earlier MIT permissions remain valid. See LICENSE and LICENSE-MIT-LEGACY.txt. No parser code changes.
+**EN:** Current distribution terms changed to the custom Personal Noncommercial Use License. Earlier MIT permissions remain valid. See LICENSE; the earlier MIT notice remains in Git history. No parser code changes.
 
-**RU:** Для текущей публикации введены отдельные условия личного некоммерческого использования. Ранее выданные разрешения MIT сохраняются. См. LICENSE и LICENSE-MIT-LEGACY.txt. Код парсера не менялся.
+**RU:** Для текущей публикации введены отдельные условия личного некоммерческого использования. Ранее выданные разрешения MIT сохраняются. См. LICENSE; прежний текст MIT остаётся в истории Git. Код парсера не менялся.
 
 ## v0.1.0 — 2026-10-24
 
